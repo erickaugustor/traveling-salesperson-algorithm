@@ -11,9 +11,9 @@ var nomesCidades = [
 ];
 
 var coordenadasCidades = [
-  {"X": 200, "Y": 100 },
-  {"X": 230, "Y": 230 },
-  {"X": 260, "Y": 160 },
+  { "X": 200, "Y": 100 },
+  { "X": 230, "Y": 230 },
+  { "X": 260, "Y": 160 },
 ];
 
 console.log(`${nomesCidades[0]}: ${distanciasCidades[0]}`);
@@ -63,12 +63,5 @@ const swap = (array, i, j) => {
 };
 
 const calcularDistancia = (points) => {
-  let sum = 0;
-  let d = 0;
-  for (let i = 0; i < points.length - 1; i++) {
-    d = points[i][i+1];
-    sum += d;
-  }
-  
-  return d;
+
 }
