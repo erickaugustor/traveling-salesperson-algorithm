@@ -19,7 +19,10 @@ class Graph {
     // if (!this.adjList.get(w)) {
     //   this.addVertex(w);
     // }
-    this.adjList.get(v).push({ w: value });
+    let obj = {};
+    obj[w] = value;
+    
+    this.adjList.get(v).push(obj);
     // if (!this.isDirected) {
     //   this.adjList.get(w).push(v);
     // }
