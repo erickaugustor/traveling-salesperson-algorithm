@@ -1,4 +1,7 @@
-
+const menorRota = (cidadeOrigem) => {
   let menorDistancia = Infinity;
-  let cidadeOrigem = 'Nova York';
   
+  
+}
+
+module.exports = menorRota;

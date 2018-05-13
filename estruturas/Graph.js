@@ -1,5 +1,5 @@
 class Graph {
-  constructor(isDirected = false) {
+  constructor(isDirected = true) {
     this.isDirected = isDirected;
     this.vertices = [];
     this.adjList = new Map();
@@ -12,17 +12,17 @@ class Graph {
     }
   } 
 
-  addEdge(v, w) {
+  addEdge(v, w, value) {
     if (!this.adjList.get(v)) {
       this.addVertex(v);
     }
-    if (!this.adjList.get(w)) {
-      this.addVertex(w);
-    }
-    this.adjList.get(v).push(w);
-    if (!this.isDirected) {
-      this.adjList.get(w).push(v);
-    }
+    // if (!this.adjList.get(w)) {
+    //   this.addVertex(w);
+    // }
+    this.adjList.get(v).push({ w: value });
+    // if (!this.isDirected) {
+    //   this.adjList.get(w).push(v);
+    // }
   } 
 
   getVertices() {
@@ -31,27 +31,7 @@ class Graph {
 
   getAdjList() {
     return this.adjList;
-  }
-  
+  } 
 }
 
-const graph = new Graph();
-
-const myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']; // {12}
-
-for (let i = 0; i < myVertices.length; i++) { // {13}
-  graph.addVertex(myVertices[i]); 
-}
-graph.addEdge('A', 'B'); // {14}
-graph.addEdge('A', 'C');
-graph.addEdge('A', 'D');
-graph.addEdge('C', 'D');
-graph.addEdge('C', 'G');
-graph.addEdge('D', 'G');
-graph.addEdge('D', 'H');
-graph.addEdge('B', 'E');
-graph.addEdge('B', 'F');
-graph.addEdge('E', 'I');
-
-console.log(graph);
-
+module.exports = Graph;
