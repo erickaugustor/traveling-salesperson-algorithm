@@ -4,7 +4,21 @@ const calcularDistancia = require('./utils/calcularDistancia');
 
 
 const menorRota = (graph, cidadeOrigem) => {
+
+  /*
+  console.log("Grafo", graph)
+  console.log("****************************")
+
+  console.log("cidadeOrigem", cidadeOrigem)
+  console.log("****************************")
+  */
+
   let cidadesMapa = graph.vertices;
+  
+  /*
+  console.log("cidadesMapa", cidadesMapa)
+  console.log("****************************")
+  */
 
   let menorDistancia = Infinity;
   let rotaFoiEncontrada = false;
@@ -15,44 +29,54 @@ const menorRota = (graph, cidadeOrigem) => {
   let rotasCidadeOrigem = graph.adjList.get(cidadeOrigem);
   rotasCidadeOrigem.forEach(arrayRota => pilhaRotas.push([arrayRota]));
 
-  // console.log(rotasCidadeOrigem)
-  // console.log('****') 
-  // pilhaRotas.forEach(each => console.log(each))
-  // console.log('****')  
-  // pilhaRotas.pop();
-  // pilhaRotas.forEach(each => console.log(each))
-
-  // console.log("cidadeOrigem ", cidadeOrigem);
-
-
-  // console.log(graph.adjList)
-  // console.log("*********")
-  // console.log(graph.adjList.get('Nova York'));
-
-  // console.log("Pilha Atual ", pilhaRotas);  
+  /*
+  console.log("rotasCidadeOrigem", rotasCidadeOrigem)
+  console.log("****************************")
+  
+  console.log("pilhaRotas", pilhaRotas)
+  console.log("****************************")
+  */
 
   do {
     let rotasAtuais = [];
     let rotaAtual = pilhaRotas.pop();
 
+    /*
+    console.log("rotaAtual", rotaAtual)
+    console.log("****************************")
+
+    console.log("pilhaRotas", pilhaRotas)
+    console.log("****************************")
+    */
+    
     rotasAtuais.push(rotaAtual);
+
+    /*
+    console.log("rotasAtuais", rotasAtuais)
+    console.log("****************************")
+    */
 
     let cidadeAtual = Object.keys(rotasAtuais[0][0])[0];
 
-    //console.log("Primeira cidade tirada da fila ", rotasAtuais);
-    //console.log("Como ficou a fila ", pilhaRotas);
-    //console.log('************');
-
-    //console.log("Cidade retirada ", Object.keys(rotasAtuais[0])[0]);
-    //console.log('************');
-
-    // let rotaCidadeAtual = graph.adjList.get(Object.keys(rotasAtuais[0])[0]);
-    //console.log("Rotas da cidade atual ", rotaCidadeAtual);
+    /*
+    console.log("cidadeAtual", cidadeAtual)
+    console.log("****************************")
+    */
 
     let control = false;
     let ultimaRotaAtual = Object.keys(rotaAtual[rotaAtual.length - 1]);
+
+    /*
+    console.log("ultimaRotaAtual", ultimaRotaAtual)
+    console.log("****************************")
+    */
+
     let igualDestino = ultimaRotaAtual == cidadeOrigem;
 
+    /*
+    console.log("igualDestino", igualDestino)
+    console.log("****************************")
+    */
 
     if (igualDestino) {
       if (passouPorTodasCidades(rotaAtual, cidadesMapa)) {
@@ -66,16 +90,30 @@ const menorRota = (graph, cidadeOrigem) => {
     } else {
       let proximasRotas = [];
       let rotasCidadeAtual = graph.adjList.get(cidadeAtual);
-      console.log(rotasCidadeAtual)
+      /*
+      console.log("rotasCidadeAtual", rotasCidadeAtual)
+      console.log("****************************")
+      */
+
       rotasCidadeAtual.forEach(rota => {
         if (true) {
           let rotasFinal = [];
-          rotasFinal.push(rotaAtual, rota);
+          rotasFinal.push(...rotaAtual, rota);
+          /*
+          console.log("rotasFinal", rotasFinal)
+          console.log("**************************")
+          */
           pilhaRotas.push(rotasFinal);
         }
       });
+      /*
+      console.log("pilhaRotas", pilhaRotas)
+      console.log("****************************")
+      */
+
+      /* console.log(pilhaRotas.pop()) */
     }
-  } while (!(pilhaRotas === undefined || pilhaRotas.length == 0) && rotaFoiEncontrada);
+  } while (!(pilhaRotas === undefined || pilhaRotas.length == 0) && !rotaFoiEncontrada);
 };
 
 module.exports = menorRota;
