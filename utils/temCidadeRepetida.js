@@ -5,4 +5,4 @@ const temCidadeRepetida = (rotaAtual, cidadeOrigem) => {
 
 }
 
-module.exports = menorRota;
+module.exports = temCidadeRepetida;
