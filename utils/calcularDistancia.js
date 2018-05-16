@@ -1,13 +1,9 @@
 const calcularDistancia = (rotaAtual) => {
-  let somaDistancia;
-  let arrayDistancia = [];
-
-  rotaAtual.forEach((distancia) => arrayDistancia.push(Object.values(distancia)));
-
-  return arrayDistancia.reduce((acc, valor) => {
-    acc = acc + valor;
+  let retorno = rotaAtual.reduce((acc, valor) => {
+    acc = acc + Object.values(valor);
   });
 
+  return retorno
 }
 
 module.exports = calcularDistancia;

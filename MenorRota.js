@@ -16,27 +16,31 @@ const menorRota = (graph, cidadeOrigem) => {
   let rotasCidadeOrigem = graph.adjList.get(cidadeOrigem);
   rotasCidadeOrigem.forEach(arrayRota => pilhaRotas.push([arrayRota]));
 
+  let i = 0;
+
   do {
     let rotasAtuais = [];
     let rotaAtual = pilhaRotas.pop();
     
     rotasAtuais.push(rotaAtual);
     
+    rotasAtuais = rotasAtuais[0]
+  
     let tamanhoArray = rotasAtuais.length-1
-    let cidadeAtual = Object.keys(rotasAtuais[tamanhoArray][tamanhoArray])[tamanhoArray];
-    
-    console.log(pilhaRotas)
+    let objCidadeAtual = rotasAtuais[tamanhoArray];
+    let cidadeAtual = Object.keys(objCidadeAtual);
 
+    // console.log(cidadeAtual)    
     console.log('*********')
-    console.log(rotasAtuais)
-    console.log(rotasAtuais[0])    
-    console.log(rotasAtuais[0][tamanhoArray])    
-    console.log(Object.keys(rotasAtuais[0][0])[0])    
+    // console.log(rotasAtuais)
+    // console.log(rotasAtuais[0])    
+    // console.log(rotasAtuais[tamanhoArray])    
+    // console.log(Object.keys(rotasAtuais[0][tamanhoArray])[0])    
     console.log('*********')
     console.log('*********')
     console.log('*********')
     console.log('*********')
-    
+   
     let control = false;
     let ultimaRotaAtual = Object.keys(rotaAtual[rotaAtual.length - 1]);
 
@@ -52,19 +56,34 @@ const menorRota = (graph, cidadeOrigem) => {
         console.log("Achou uma " + menorDistancia);
         console.log("\n" + rotaFinal);
     } else {
-      let proximasRotas = [];
-      let rotasCidadeAtual = graph.adjList.get(cidadeAtual);
+
+      // let proximasRotas = [];
+      let rotasCidadeAtual = graph.adjList.get(...cidadeAtual);
+      // console.log(graph.adjList.get(...cidadeAtual))
+
+
+      console.log(rotasCidadeAtual)
       rotasCidadeAtual.forEach(rota => {
         let distanciaCaulada = calcularDistancia(rotaAtual);
+        
+        // console.log(menorDistancia)
+        // console.log(rotaAtual)
+        // console.log(distanciaCaulada)
+        // console.log(distanciaCaulada[0])
+
         if ((menorDistancia > distanciaCaulada)) {
           let rotasFinal = [];
           rotasFinal.push(...rotaAtual, rota);
           pilhaRotas.push(rotasFinal);
         }
-        // console.log('*****')
-        // console.log(pilhaRotas)
-        // console.log('*****')
+
+
+        console.log('*****')
+        console.log('*****')
       });
+      i++
+      if(i === 2)
+      break;
     }
     // console.log(pilhaRotas)
     // console.log(rotaFoiEncontrada)
