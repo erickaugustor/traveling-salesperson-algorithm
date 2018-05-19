@@ -4,7 +4,6 @@ const calcularDistancia = require('./utils/calcularDistancia');
 
 
 const menorRota = (graph, cidadeOrigem) => {
-
   let menorDistancia = Infinity;
   let rotaFoiEncontrada = false;
 
@@ -19,6 +18,8 @@ const menorRota = (graph, cidadeOrigem) => {
   let i = 0;
 
   do {
+    console.log(pilhaRotas)
+    
     let rotasAtuais = [];
     let rotaAtual = pilhaRotas.pop();
     
@@ -34,12 +35,15 @@ const menorRota = (graph, cidadeOrigem) => {
     console.log('*********')
     // console.log(rotasAtuais)
     // console.log(rotasAtuais[0])    
+  
     // console.log(rotasAtuais[tamanhoArray])    
     // console.log(Object.keys(rotasAtuais[0][tamanhoArray])[0])    
     console.log('*********')
     console.log('*********')
-    console.log('*********')
-    console.log('*********')
+
+
+    //CONTAR O NUMERO DE VIZINHOS, SE FOR UM, PERMITE COLOCAR NA PILHA UMA VOLTA
+    //CASO NÃO SEJA, COLOCAR TODOS MENOS A VOLTA
    
     let control = false;
     let ultimaRotaAtual = Object.keys(rotaAtual[rotaAtual.length - 1]);
@@ -62,7 +66,7 @@ const menorRota = (graph, cidadeOrigem) => {
       // console.log(graph.adjList.get(...cidadeAtual))
 
 
-      console.log(rotasCidadeAtual)
+      // console.log(rotasCidadeAtual)
       rotasCidadeAtual.forEach(rota => {
         let distanciaCaulada = calcularDistancia(rotaAtual);
         
@@ -82,7 +86,7 @@ const menorRota = (graph, cidadeOrigem) => {
         console.log('*****')
       });
       i++
-      if(i === 2)
+      if(i === 3)
       break;
     }
     // console.log(pilhaRotas)
