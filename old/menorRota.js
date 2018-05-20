@@ -1,3 +1,4 @@
+/*
 const temCidadeRepetida = require('./utils/temCidadeRepetida');
 const passouPorTodasCidades = require('./utils/passouPorTodasCidades');
 const calcularDistancia = require('./utils/calcularDistancia');
@@ -96,3 +97,4 @@ const menorRota = (graph, cidadeOrigem) => {
 };
 
 module.exports = menorRota;
+*/

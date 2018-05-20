@@ -1,24 +1,21 @@
 // const Graph = require('./estruturas/Graph');
 const GrafoMapa = require('./estruturas/GrafoMapa');
 const inicializaCidades = require('./inicializaCidades');
-const menorRota = require('./menorRota');
+// const menorRota = require('./menorRota');
 const calculoRota = require('./calculoRota');
 
-// const graph = new Graph();
+const inicializaPoucasCidades = require('./incializaPoucasCidades');
 
 const estruturaMapa = new GrafoMapa();
 
-inicializaCidades(estruturaMapa);
+// inicializaCidades(estruturaMapa);
 
-// console.log(estruturaMapa.adjList);
-// Testando Lista de cidades vizinhas
+inicializaPoucasCidades(estruturaMapa);
 
-
-cidadeOrigem = 'Nova York';
+cidadeOrigem = 'Campinas';
 
 console.log(calculoRota(estruturaMapa, cidadeOrigem))
 
-// menorRota(graph, cidadeOrigem);
 
 // Para adicionar uma cidade graph.addEdge('a', 'm', 10);
 // console.log(graph);

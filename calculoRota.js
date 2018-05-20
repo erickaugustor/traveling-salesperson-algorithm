@@ -34,8 +34,8 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
   });
 
   while(rotaFoiEncontrada && pilhaDeRotas.isEmpty) {
-    console.log('*****')
-    console.log('\npilhaDeRota', pilhaDeRotas.rotas)
+    // console.log('*****')
+    // console.log('\npilhaDeRota', pilhaDeRotas.rotas)
 
     
     let rotaAtual = pilhaDeRotas.popRotas();
@@ -56,21 +56,24 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
         rotaFinal = rotaAtual;
         rotaFoiEncontrada = true;
       }
+      return rotaFinal;
 
     } else {
       let proximasRotas = estruturaMapa.adjList.get(cidadeAtual);
+
+      // console.log(cidadeAtual)
 
       if (proximasRotas.length > 1) {
         // Tem mais que um vizinho?
       
         // Ordenando vizinhos pela distancia
-        proximasRotas.sort(
+        /*proximasRotas.sort(
           (a, b) => (a.distancia < b.distancia) ? 1 : 0
-        );
+        );*/
 
-        console.log('\nRotaAtual', rotaAtual, '\n')
+        // console.log('\nRotaAtual', rotaAtual, '\n')
 
-        console.log('ultimaRota', ultimaRota)
+        // console.log('ultimaRota', ultimaRota)
 
         // Para cada vizinho
         proximasRotas.forEach(rota => {
@@ -87,7 +90,7 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
 
 
           if ((distanciaFinal < menorDistancia) && !cidadeEhAntiga && !temCidadeRepetida(rotaAtual, cidadeOrigem)) {
-            console.log('entrou if')
+            // console.log('entrou if')
 
             // Se é menor e a cidade não é a de origem
             let rotasFinal = [];
@@ -98,7 +101,7 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
             pilhaDeRotas.pushDistania(distanciaFinal);            
 
           } else {
-            console.log('entrou else ')
+            // console.log('entrou else ')
           }
           //console.log('saiu')
           // Se é maior, descartar
