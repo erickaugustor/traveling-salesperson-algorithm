@@ -14,7 +14,7 @@ inicializaCidades(estruturaMapa);
 // Testando Lista de cidades vizinhas
 
 
-cidadeOrigem = 'Boston';
+cidadeOrigem = 'Nova York';
 
 console.log(calculoRota(estruturaMapa, cidadeOrigem))
 
