@@ -17,7 +17,7 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
   let rotaFinal = null;
 
   let cidadesDoMapa = estruturaMapa.vertices;
-  
+
   let rotasCidadeOrigem = estruturaMapa.adjList.get(cidadeOrigem);
   // Array de viznhos da cidade de origem
 
@@ -33,11 +33,11 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
     pilhaDeRotas.pushDistania(objCidade.distancia);
   });
 
-  while(rotaFoiEncontrada && pilhaDeRotas.isEmpty) {
+  while (rotaFoiEncontrada && pilhaDeRotas.isEmpty) {
     // console.log('*****')
-    // console.log('\npilhaDeRota', pilhaDeRotas.rotas)
+    console.log('\npilhaDeRota', pilhaDeRotas.rotas)
 
-    
+
     let rotaAtual = pilhaDeRotas.popRotas();
     let distanciaAtual = pilhaDeRotas.popDistancia();
     let posicaoUltimaRota = rotaAtual.length - 1;
@@ -49,8 +49,8 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
     let igualDestino = cidadeAtual == cidadeOrigem;
     // Verifica se destino final é a cidade de Origem
 
-    if (igualDestino && (posicaoUltimaRota+1) == totalDeCidades && passouPorTodasCidades(rotaAtual, cidadesDoMapa)) {
-      
+    if (igualDestino && (posicaoUltimaRota + 1) == totalDeCidades && passouPorTodasCidades(rotaAtual, cidadesDoMapa)) {
+
       if (distanciaAtual < menorDistancia) {
         menorDistancia = distanciaAtual;
         rotaFinal = rotaAtual;
@@ -65,7 +65,7 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
 
       if (proximasRotas.length > 1) {
         // Tem mais que um vizinho?
-      
+
         // Ordenando vizinhos pela distancia
         /*proximasRotas.sort(
           (a, b) => (a.distancia < b.distancia) ? 1 : 0
@@ -76,37 +76,38 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
         // console.log('ultimaRota', ultimaRota)
 
         // Para cada vizinho
-        proximasRotas.forEach(rota => {
-          // Verificar se a diatancia de tudo + distancia da cidade
-          let distanciaFinal = distanciaAtual + rota.distancia;
+        if (!temCidadeRepetida(rotaAtual, cidadeOrigem)) {
+          proximasRotas.forEach(rota => {
+            // Verificar se a diatancia de tudo + distancia da cidade
+            let distanciaFinal = distanciaAtual + rota.distancia;
 
-          let cidadeEhAntiga = (rotaAtual.length > 1) ? rota.vizinho == rotaAtual[rotaAtual.length-2].vizinho : rota.vizinho == cidadeAtual;
-          // let cidadeEhOrigem = rota.vizinho == cidadeOrigem;
-          // let cidadeEhAntiga = rota.vizinho == rotaAtual[rotaAtual.length-2].vizinho;     
-          
-          // console.log((distanciaFinal < menorDistancia), !cidadeEhVizinho , !cidadeEhOrigem )
-        
-          // console.log('cidadeAntiga' , (rotaAtual.length > 1) ? rotaAtual[rotaAtual.length-2].vizinho :  cidadeAtual)
+            let cidadeEhAntiga = (rotaAtual.length > 1) ? rota.vizinho == rotaAtual[rotaAtual.length - 2].vizinho : rota.vizinho == cidadeAtual;
+            // let cidadeEhOrigem = rota.vizinho == cidadeOrigem;
+            // let cidadeEhAntiga = rota.vizinho == rotaAtual[rotaAtual.length-2].vizinho;     
+
+            // console.log((distanciaFinal < menorDistancia), !cidadeEhVizinho , !cidadeEhOrigem )
+
+            // console.log('cidadeAntiga' , (rotaAtual.length > 1) ? rotaAtual[rotaAtual.length-2].vizinho :  cidadeAtual)
 
 
-          if ((distanciaFinal < menorDistancia) && !cidadeEhAntiga && !temCidadeRepetida(rotaAtual, cidadeOrigem)) {
-            // console.log('entrou if')
+            if ((distanciaFinal < menorDistancia) && !cidadeEhAntiga) {
+              // console.log('entrou if')
 
-            // Se é menor e a cidade não é a de origem
-            let rotasFinal = [];
-            rotasFinal.push(...rotaAtual, rota);
+              // Se é menor e a cidade não é a de origem
+              let rotasFinal = [];
+              rotasFinal.push(...rotaAtual, rota);
 
-            // Colocar na pilha as rotas e a distância
-            pilhaDeRotas.pushRotas(rotasFinal);
-            pilhaDeRotas.pushDistania(distanciaFinal);            
+              // Colocar na pilha as rotas e a distância
+              pilhaDeRotas.pushRotas(rotasFinal);
+              pilhaDeRotas.pushDistania(distanciaFinal);
 
-          } else {
-            // console.log('entrou else ')
-          }
-          //console.log('saiu')
-          // Se é maior, descartar
-        });      
-
+            } else {
+              // console.log('entrou else ')
+            }
+            //console.log('saiu')
+            // Se é maior, descartar
+          });
+        }
       } else {
         // Só tem um vizinho?
         let distanciaFinal = proximasRotas[0].distancia + distanciaAtual;
@@ -117,7 +118,7 @@ const calculoRota = (estruturaMapa, cidadeOrigem) => {
         pilhaDeRotas.pushRotas(rotasFinal);
         pilhaDeRotas.pushDistania(distanciaFinal);
 
-      } 
+      }
     }
   }
 
