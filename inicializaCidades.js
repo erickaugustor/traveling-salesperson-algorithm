@@ -52,12 +52,12 @@ const AdicionaCidades = (graph) => {
   graph.addEdge('Memphis', 'StLouis', 290);
   graph.addEdge('Memphis', 'Nashville', 210);
   graph.addEdge('Memphis', 'Atlanta', 390);
-  graph.addEdge('Memphis', 'LittleRock', 140);
+  graph.addEdge('Memphis', 'Little Rock', 140);
 
   graph.addEdge('StLouis', 'Chicago', 300);
   graph.addEdge('StLouis', 'Indianapolis', 250);
   graph.addEdge('StLouis', 'Memphis', 290);
-  graph.addEdge('StLouis', 'LittleRock', 400);
+  graph.addEdge('StLouis', 'Little Rock', 400);
   graph.addEdge('StLouis', 'Kansas City', 250);
 
   graph.addEdge('Kansas City', 'Omaha', 190);
@@ -70,11 +70,11 @@ const AdicionaCidades = (graph) => {
   graph.addEdge('Mineapolis', 'Omaha', 380);
   graph.addEdge('Mineapolis', 'Yellowstone', 1340);
 
-  graph.addEdge('LittleRock', 'StLouis', 400);
-  graph.addEdge('LittleRock', 'Memphis', 140);
-  graph.addEdge('LittleRock', 'Dallas', 320);
+  graph.addEdge('Little Rock', 'StLouis', 400);
+  graph.addEdge('Little Rock', 'Memphis', 140);
+  graph.addEdge('Little Rock', 'Dallas', 320);
 
-  graph.addEdge('Dallas', 'LittleRock', 320);
+  graph.addEdge('Dallas', 'Little Rock', 320);
   graph.addEdge('Dallas', 'Kansas City', 550);
   graph.addEdge('Dallas', 'Atlanta', 790);
   graph.addEdge('Dallas', 'Houston', 250);
@@ -128,24 +128,24 @@ const AdicionaCidades = (graph) => {
 
   graph.addEdge('Salt Lake City', 'Denver', 530);
   graph.addEdge('Salt Lake City', 'Phoenix', 660);
-  graph.addEdge('Salt Lake City', 'LasVegas', 420);
+  graph.addEdge('Salt Lake City', 'Las Vegas', 420);
   graph.addEdge('Salt Lake City', 'Lake Tahoe', 520);
 
-  graph.addEdge('LasVegas', 'Salt Lake City', 420);
-  graph.addEdge('LasVegas', 'GrandCanyon', 470);
-  graph.addEdge('LasVegas', 'PalmSprings', 290);
-  graph.addEdge('LasVegas', 'LosAngeles', 270);
+  graph.addEdge('Las Vegas', 'Salt Lake City', 420);
+  graph.addEdge('Las Vegas', 'GrandCanyon', 470);
+  graph.addEdge('Las Vegas', 'PalmSprings', 290);
+  graph.addEdge('Las Vegas', 'LosAngeles', 270);
 
   graph.addEdge('GrandCanyon', 'Phoenix', 360);
   graph.addEdge('GrandCanyon', 'PalmSprings', 440);
-  graph.addEdge('GrandCanyon', 'LasVegas', 470);
+  graph.addEdge('GrandCanyon', 'Las Vegas', 470);
 
   graph.addEdge('Boise', 'Yellowstone', 670);
   graph.addEdge('Boise', 'Lake Tahoe', 420);
   graph.addEdge('Boise', 'Portland', 420);
   graph.addEdge('Boise', 'Seatle', 500);
 
-  graph.addEdge('PalmSprings', 'LasVegas', 290);
+  graph.addEdge('PalmSprings', 'Las Vegas', 290);
   graph.addEdge('PalmSprings', 'GrandCanyon', 440);
   graph.addEdge('PalmSprings', 'SanDiego', 140);
   graph.addEdge('PalmSprings', 'LosAngeles', 160);
@@ -160,8 +160,8 @@ const AdicionaCidades = (graph) => {
   graph.addEdge('SanDiego', 'PalmSprings', 140);
   graph.addEdge('SanDiego', 'Phoenix', 350);
 
-  graph.addEdge('LosAngeles', 'SanFrancisco', 380);
-  graph.addEdge('LosAngeles', 'LasVegas', 270);
+  graph.addEdge('LosAngeles', 'San Francisco', 380);
+  graph.addEdge('LosAngeles', 'Las Vegas', 270);
   graph.addEdge('LosAngeles', 'PalmSprings', 160);
   graph.addEdge('LosAngeles', 'SanDiego', 120);
 
@@ -169,16 +169,16 @@ const AdicionaCidades = (graph) => {
   graph.addEdge('Lake Tahoe', 'Boise', 420);
   graph.addEdge('Lake Tahoe', 'Salt Lake City', 520);
   graph.addEdge('Lake Tahoe', 'PalmSprings', 780);
-  graph.addEdge('Lake Tahoe', 'SanFrancisco', 300);
+  graph.addEdge('Lake Tahoe', 'San Francisco', 300);
 
-  graph.addEdge('SanFrancisco', 'Portland', 640);
-  graph.addEdge('SanFrancisco', 'Lake Tahoe', 300);
-  graph.addEdge('SanFrancisco', 'LosAngeles', 380);
+  graph.addEdge('San Francisco', 'Portland', 640);
+  graph.addEdge('San Francisco', 'Lake Tahoe', 300);
+  graph.addEdge('San Francisco', 'LosAngeles', 380);
 
   graph.addEdge('Portland', 'Seatle', 170);
   graph.addEdge('Portland', 'Boise', 420);
   graph.addEdge('Portland', 'Lake Tahoe', 580);
-  graph.addEdge('Portland', 'SanFrancisco', 640);
+  graph.addEdge('Portland', 'San Francisco', 640);
 
   graph.addEdge('Seatle', 'Boise', 500);
   graph.addEdge('Seatle', 'Portland', 170);
