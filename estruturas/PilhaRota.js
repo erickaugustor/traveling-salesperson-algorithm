@@ -33,7 +33,7 @@ class PilhaRotas {
     return this.distanciaTotal[this.distanciaTotal.length - 1];    
   }
 
-  
+
   isEmpty() {
     return this.rotas.length === 0 || this.rotas === undefined;
   } 
@@ -41,6 +41,10 @@ class PilhaRotas {
   size() {
     return this.rotas.length;
   } 
+
+  peekEverything() {
+    return this.rotas;
+  }
 }
 
 module.exports = PilhaRotas;

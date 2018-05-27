@@ -1,7 +1,7 @@
 
-const passouPorTodasCidades = (rotaAtual, cidadesDoMapa) => {
+const passouPorTodasCidades = (rotaAtual, cidadesDoMapaOrdenada) => {
   //coloca em ordem e coloca numa string
-  let cidadesTotais = cidadesDoMapa.sort().toString();
+  // let cidadesTotais = cidadesDoMapa.sort().toString();
 
   // Pega os nomes das cidades
   let cidadesDaRota = [];
@@ -10,7 +10,7 @@ const passouPorTodasCidades = (rotaAtual, cidadesDoMapa) => {
   // Coloca em ordem e coloca numa string
   cidadeContidas = cidadesDaRota.sort().toString();
 
-  if (cidadeContidas === cidadesTotais)
+  if (cidadeContidas === cidadesDoMapaOrdenada)
     return true;
   return false;
 }

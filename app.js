@@ -8,14 +8,13 @@ const inicializaPoucasCidades = require('./incializaPoucasCidades');
 
 const estruturaMapa = new GrafoMapa();
 
-//inicializaCidades(estruturaMapa);
+// inicializaCidades(estruturaMapa);
 
 inicializaPoucasCidades(estruturaMapa);
 
-cidadeOrigem = 'Campinas';
+cidadeOrigem = 'Valinhos';
 
 console.log(calculoRota(estruturaMapa, cidadeOrigem))
-
 
 // Para adicionar uma cidade graph.addEdge('a', 'm', 10);
 // console.log(graph);
